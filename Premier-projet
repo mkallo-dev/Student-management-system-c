@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    int id;
+    char name[50];
+    float grade;
+};
+
+int main() {
+    FILE *file;
+    struct Student s;
+
+    file = fopen("students.txt", "a");
+
+    if (file == NULL) {
+        printf("Erreur ouverture fichier\n");
+        return 1;
+    }
+
+    printf("Enter ID: ");
+    scanf("%d", &s.id);
+
+    printf("Enter Name: ");
+    scanf("%s", s.name);
+
+    printf("Enter Grade: ");
+    scanf("%f", &s.grade);
+
+    printf(file, "%d %s %.2f\n", s.id, s.name, s.grade);
+
+    fclose(file);
+
+    printf("Student saved successfully!\n");
+
+    return 0;
+}
